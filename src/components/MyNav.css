@@ -1,3 +1,8 @@
+.navbar-nav {
+  display: flex;
+  justify-content: left;
+}
+
 .dropdown-menu {
   font-size: small;
   background-color: #0e0e0e;
