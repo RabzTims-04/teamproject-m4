@@ -1,6 +1,7 @@
 import { Modal, Button, Row, Col } from 'react-bootstrap'
 import { useState } from 'react'
 import AddComments from './AddComments'
+import './ModalTemplate.css'
 
 const ModalTemplate = (props)=> {
     const [show, setShow] = useState(false);
