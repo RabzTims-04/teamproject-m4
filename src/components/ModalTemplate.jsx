@@ -2,6 +2,7 @@ import { Modal, Button, Row, Col } from 'react-bootstrap'
 import { useState } from 'react'
 import AddComments from './AddComments'
 import './ModalTemplate.css'
+import CommentsList from './CommentsList'
 
 const ModalTemplate = (props)=> {
     const [show, setShow] = useState(false);
@@ -18,6 +19,7 @@ const ModalTemplate = (props)=> {
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>{props['moviename']}</Modal.Title>
+            <CommentsList imdbID ={props.elementId}></CommentsList>
           </Modal.Header>
        
           <Row className="justify-content-center text-center mt-3">
