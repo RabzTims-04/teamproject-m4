@@ -1,5 +1,5 @@
 import React from 'react'
-import Loading from './Loading'
+
 import { ListGroup } from 'react-bootstrap'
 
 
@@ -8,7 +8,7 @@ class CommentsList extends React.Component {
 
     state = {
         comments: [],
-        isLoading: true
+   
     }
 
     componentDidMount = async () => {
@@ -27,7 +27,7 @@ class CommentsList extends React.Component {
             })
         } catch (error) {
             console.log(error)
-            this.setState({ isLoading: false})
+            
         }
     }
 
@@ -44,17 +44,17 @@ class CommentsList extends React.Component {
 
                 this.setState({
                     comments: comments,
-                    isLoading: false
+                
                 })
             } catch (error) {
                 console.log(error)
-                this.setState({ isLoading: false})
+            
             }
         }
     }
 
     deleteComment = async (id) => {
-        this.setState({...this.state, isLoading: true})
+        this.setState({...this.state})
         try {
             let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + id, {
                 method: "DELETE",
@@ -64,13 +64,13 @@ class CommentsList extends React.Component {
             })
 
             if(await response.ok) {
-                this.setState({...this.state, isLoading: false})
+                this.setState({...this.state})
                 this.props.commentsUpdated()
             }
 
         } catch (error) {
             console.log(error)
-            this.setState({...this.state, isLoading: false})
+            this.setState({...this.state })
         }
     }
 
@@ -80,7 +80,6 @@ class CommentsList extends React.Component {
                 {
                     (
                         this.state.comments.length === 0
-                        && this.state.isLoading === false
                     )
                         ? <p>No Comments Yet</p>
                         : <ListGroup>
@@ -90,7 +89,7 @@ class CommentsList extends React.Component {
                         </ListGroup>
                 }
 
-                {this.state.isLoading && <Loading />}
+                {/* {this.state.isLoading && <Loading />} */}
             </>
         )
     }
