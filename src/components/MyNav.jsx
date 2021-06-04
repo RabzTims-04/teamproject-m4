@@ -4,6 +4,7 @@ import { Navbar, Form, FormControl, Button } from "react-bootstrap";
 import "./MyNav.css";
 import avatar from "../assets/avatar.png";
 import netflix from "../assets/netflix_logo.png";
+import kids from "../assets/kids_icon.png";
 
 class MyNav extends Component {
   state = {};
@@ -109,7 +110,7 @@ class MyNav extends Component {
                 >
                   Profile
                 </a>
-                <img className="kidsIcon ml-5" src={avatar} alt="kidsIcon" />
+                <img className="kidsIcon ml-5" src={kids} alt="kidsIcon" />
               </a>
               <br />
               <a
