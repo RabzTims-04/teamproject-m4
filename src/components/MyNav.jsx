@@ -2,14 +2,16 @@ import React from "react";
 import { Component } from "react";
 import { Navbar, Form, FormControl, Button } from "react-bootstrap";
 import "./MyNav.css";
+import avatar from "../assets/avatar.png";
+import netflix from "../assets/netflix_logo.png";
 
 class MyNav extends Component {
   state = {};
   render() {
     return (
-      <Navbar className="navbar navbar-expand-lg bg-Color">
+      <Navbar className="navbar navbar-expand-lg bg-Color" variant="dark">
         <a href="home.html">
-          <img src="../assets/avatar.png" alt="logo" className="navbarLogo" />
+          <img src={netflix} alt="logo" className="navbarLogo" />
         </a>
         <button
           className="navbar-toggler"
@@ -92,7 +94,7 @@ class MyNav extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <img src="#" alt="" className="avatar" />
+              <img src={avatar} alt="" className="avatar" />
             </a>
 
             <div
@@ -107,7 +109,7 @@ class MyNav extends Component {
                 >
                   Profile
                 </a>
-                <img className="kidsIcon ml-5" src="#" alt="kidsIcon" />
+                <img className="kidsIcon ml-5" src={avatar} alt="kidsIcon" />
               </a>
               <br />
               <a
