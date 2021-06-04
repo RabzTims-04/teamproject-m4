@@ -1,0 +1,11 @@
+.modal-content{
+    background-color: transparent;
+  }
+  
+  .modal-title{
+    color: violet;
+  }
+  
+  .close{
+    color: red;
+  }
