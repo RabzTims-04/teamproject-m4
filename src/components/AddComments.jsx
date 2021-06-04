@@ -5,8 +5,8 @@ class AddComments extends Component {
   state = {
     comment: {
       comment: '',
-      rate: 1,
-      elementId: "tt0848228"
+      rate: '',
+      elementId: this.props['elementId']
     //   elementId: this.props.imdbID,
     },
   };
@@ -36,16 +36,16 @@ class AddComments extends Component {
         },
       });
       console.log(response)
-      if (await response.ok) {
+      if (response.ok) {
         this.setState({
             comment: {
                 comment: '',
-                rate: 1,
-                elementId: "tt0848228"
+                rate: '',
+                elementId: ""
                 // elementId: this.props.imdbID
             }
         })
-        this.props.commentsUpdated()
+       /*  this.props.commentsUpdated() */
     } else {
         console.log('Error with POST request')
     }
@@ -59,15 +59,23 @@ class AddComments extends Component {
             <Col>
                 <Form.Control type="text" placeholder="Write your comment here..." value={this.state.comment.comment} id="comment" onChange={e => this.inputChange(e)} />
             </Col>
+            <Col>
+            <Form.Control
+                            type="text"
+                            placeholder="Enter Book Id"
+                            id='elementId'
+                            value={this.state.comment.elementId}
+                            onChange={e => this.inputChange(e)}
+                        /></Col>
         </Form.Row>
         <Form.Row className="d-flex align-items-center mt-1">
             <Col xs={3}>
                 <Form.Control as="select" className = "align-items-center" defaultValue="Rating..." value={this.state.comment.rate} id="rate" onChange={e => this.inputChange(e)} >
-                    <option>⭐️ 1</option>
-                    <option>⭐️⭐️ 2</option>
-                    <option>⭐️⭐️⭐️ 3</option>
-                    <option>⭐️⭐️⭐️⭐️ 4</option>
-                    <option>⭐️⭐️⭐️⭐️⭐️ 5</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                 </Form.Control>
             </Col>
             <Col xs={9}>
