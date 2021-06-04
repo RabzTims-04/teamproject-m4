@@ -1,10 +1,21 @@
-import logo from './logo.svg';
+
 import './App.css';
 import AddComments from './components/AddComments'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./components/Header";
+import Movies from "./components/Movies";
+import Footer from "./components/Footer";
+
 function App() {
   return (
-    <AddComments/>
+    <>
+   
+      <Header />
+      <Movies />
+       <AddComments/>
+      <Footer />
+    </>
+
   );
 }
 
