@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import { Navbar, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import "./MyNav.css";
 import avatar from "../assets/avatar.png";
 import netflix from "../assets/netflix_logo.png";
@@ -34,27 +34,27 @@ class MyNav extends Component {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/">
               TV Shows
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/">
               Movies
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/">
               Recently Added
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/">
               MyList
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/">
               Form
             </a>
           </li>
@@ -62,7 +62,7 @@ class MyNav extends Component {
         <div className="d-flex align-items-center" />
         <a
           class="nav-link disabled"
-          href="#"
+          href="/"
           tabindex="-1"
           aria-disabled="true"
         >
@@ -71,13 +71,13 @@ class MyNav extends Component {
             width="16"
             height="16"
             fill="white"
-            class="bi bi-search"
+            className="bi bi-search"
             viewBox="0 0 16 16"
           >
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
           </svg>
         </a>
-        <a href="#">
+        <a href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -90,11 +90,11 @@ class MyNav extends Component {
           </svg>
         </a>
 
-        <a href="#">
+        <a href="/">
           <div className="nav-item dropdown justify-content-end ml-auto nav-link">
             <a
               className="nav-link dropdown-toggle"
-              href="#"
+              href="/"
               id="navbarDropdownMenuLink"
               role="button"
               data-toggle="dropdown"
@@ -108,7 +108,7 @@ class MyNav extends Component {
               className="dropdown-menu userDropdown"
               aria-labelledby="navbarDropdownMenuLink"
             >
-              <a className="dropdown-item p-0" href="#">
+              <a className="dropdown-item p-0" href="/">
                 <a
                   href="profile.html"
                   className="addUser"

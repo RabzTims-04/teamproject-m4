@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import ModalTemplate from './ModalTemplate'
 
+
 class Carousel extends Component{
 
     state = {
@@ -8,8 +9,10 @@ class Carousel extends Component{
         selectId:''
     }
 
+    
+
     componentDidMount = async ()=>{
-        const url=' http://www.omdbapi.com/?i=tt3896198&apikey=5b5bab7&s=' + this.props['movieName']
+        const url='http://www.omdbapi.com/?i=tt3896198&apikey=5b5bab7&s=' + this.props['movieName']
 
         try {
 
@@ -17,10 +20,9 @@ class Carousel extends Component{
             /* console.log(response); */
             const data = await response.json()
             console.log(data);
-            let movies = data.Search
+            let movies = await data.Search
             console.log(movies);
             this.setState({
-                ...this.state,
                 moviesArr:movies
             })
             
@@ -33,6 +35,8 @@ class Carousel extends Component{
         return(
 
             <>
+     
+            
             {(this.state.moviesArr.length === 0)
             ?<p>No movies to show</p>
             :this.state.moviesArr.map((movie,i) =>              
@@ -61,6 +65,8 @@ class Carousel extends Component{
 }
 
 export default Carousel
+
+/* <Filter movies={this.state.moviesArr}/> */
 
 /* 
 <div className ='infinite-row-element'>
