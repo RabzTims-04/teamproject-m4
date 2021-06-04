@@ -1,14 +1,15 @@
 import React from "react";
 import { Component } from "react";
 import { Navbar, Form, FormControl, Button } from "react-bootstrap";
+import "./MyNav.css";
 
 class MyNav extends Component {
   state = {};
   render() {
     return (
-      <Navbar className="navbar navbar-expand-lg">
+      <Navbar className="navbar navbar-expand-lg bg-Color">
         <a href="home.html">
-          <img src="#" alt="logo" className="navbarLogo" />
+          <img src="../assets/avatar.png" alt="logo" className="navbarLogo" />
         </a>
         <button
           className="navbar-toggler"
