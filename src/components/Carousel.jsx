@@ -6,7 +6,8 @@ class Carousel extends Component{
 
     state = {
         moviesArr: [],
-        selectId:''
+        selectId:'',
+        search:''
     }
 
     
@@ -31,6 +32,22 @@ class Carousel extends Component{
         }
     }
 
+    searchMovies =(e)=>{
+        e.preventDefault()
+        let filtermovies = this.state['moviesArr'].filter(movie=>movie['Title'].toLowerCase().includes(this.state.search))
+        console.log(filtermovies);
+        if(this.state.search.length>2){
+            this.setState({
+                movies:filtermovies
+            })
+        }
+        else{
+            this.setState({
+                movies:[]
+            })
+        }
+      }
+
     render(){
         return(
 
@@ -40,7 +57,7 @@ class Carousel extends Component{
             {(this.state.moviesArr.length === 0)
             ?<p>No movies to show</p>
             :this.state.moviesArr.map((movie,i) =>              
-            <div key={movie.imdbID} className ='infinite-row-element'>
+            <div key={movie.imdbID} className ='infinite-row-element position-relative'>
                  <img
                  id={movie.imdbID}
                  onClick={(e)=>{
@@ -50,7 +67,7 @@ class Carousel extends Component{
                  className="imagetransition img-fluid image-height" 
                  src={movie.Poster} 
                  alt={movie.Title}/>
-                 <div className="text-center" id={movie.imdbID}>
+                 <div className="text-center modal-div position-absolute" id={movie.imdbID}>
                      < ModalTemplate moviename={movie.Title} elementId={movie.imdbID}/>
                 </div>
              </div>

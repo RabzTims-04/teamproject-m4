@@ -1,42 +1,52 @@
-import {Form, FormControl, Button, Container, Row, Col} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 import { Component } from 'react'
 import Carousel from './Carousel'
+
 
 class Filter extends Component{
 
     state={
-        search:'',
-        moviesArr:[],
-        movies:[]
+
+        movies:[],
+        filtered:[]
     }
+
     componentDidMount = async ()=>{
-        const url=' http://www.omdbapi.com/?i=tt3896198&apikey=5b5bab7&s=harry' 
+        const url= 'http://www.omdbapi.com/?i=tt3896198&apikey=5b5bab7&s=' + this.props.searchmovie 
 
         try {
 
-            let response = await fetch(url)
-            const data = await response.json()
-            console.log(data);
-            let movies = await data.Search
-            console.log(movies);
-            this.setState({
-                moviesArr:movies
-            })
+            const response = await fetch(url)
+            if(response.ok){
+                const data = await response.json()
+                console.log(data);
+                this.setState({
+                    movies:data.Search
+                })
+                console.log(this.state.movies);
+                let filtermovies = this.state['movies'].filter(movie=>movie['Title'].toLowerCase().includes(this.props.searchTitle))
+                this.setState({
+                    filtered:filtermovies
+                })
+              
+            }else{
+                console.log('error');
+            }   
             
         } catch (error) {
             console.log(error);            
         }
     }
 
-    inputChange =(e)=>{
+    /* inputChange =(e)=>{
         this.setState({
             search:e.target.value.toLowerCase()
         })
-    }
+    } */
 
-    searchMovies =(e)=>{
+    /*  searchMovies =(e)=>{
         e.preventDefault()
-        let filtermovies = this.state['moviesArr'].filter(movie=>movie['Title'].toLowerCase().includes(this.state.search))
+        let filtermovies = this.state['movies'].filter(movie=>movie['Title'].toLowerCase().includes(this.props.searchTitle))
         console.log(filtermovies);
         if(this.state.search.length>2){
             this.setState({
@@ -48,12 +58,12 @@ class Filter extends Component{
                 movies:[]
             })
         }
-    }
+    }  */
 
     render(){
         return(
             <>
-            <Container>
+     {/*        <Container>
                 <Row className="justify-content-center">
                     <Col md={6}>
                     <Form className="text-center" inline onSubmit={(e) => this.searchMovies(e)}>
@@ -67,9 +77,9 @@ class Filter extends Component{
                         </Form>                       
                     </Col>
                 </Row>
-            </Container>
+            </Container> */}
             <Container fluid className="search-movies">
-                {this.state.movies && <Carousel movieName ={this.state.movies}/>}
+                {this.state.movies?this.state.movies.map(movie=><Carousel movieName ={this.state.filtered}/>):<p>Nothing to search</p>}
             </Container>
             </>
         )

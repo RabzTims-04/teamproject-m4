@@ -1,5 +1,5 @@
 import React from 'react'
-
+import del from "../assets/delete.jpg";
 import { ListGroup } from 'react-bootstrap'
 
 
@@ -64,8 +64,10 @@ class CommentsList extends React.Component {
             })
 
             if(await response.ok) {
-                this.setState({...this.state})
+                alert('comment deleted')
+                this.setState({comments:''})
                 this.props.commentsUpdated()
+               
             }
 
         } catch (error) {
@@ -74,6 +76,10 @@ class CommentsList extends React.Component {
         }
     }
 
+    refresh =()=>{
+        window.location.reload();
+   }
+
     render() {
         return (
             <>
@@ -81,10 +87,22 @@ class CommentsList extends React.Component {
                     (
                         this.state.comments.length === 0
                     )
-                        ? <p>No Comments Yet</p>
+                        ? <p className="mt-3">No Comments Yet</p>
                         : <ListGroup>
                             {this.state.comments.map(comment => 
-                                <ListGroup.Item className="d-flex" onClick={() => this.deleteComment(comment._id)}><span className="mr-auto">{comment.comment}</span><span>{comment.rate}/5</span></ListGroup.Item>    
+                                <ListGroup.Item 
+                                className="d-flex" 
+                                >
+                                    <span className="mr-auto">{comment.comment}</span>
+                                    <span className="mr-5">{comment.rate}/5</span>
+                                    <img
+                                        className="ml-5 mt-1"
+                                        id= 'deleteBtn'
+                                        onClick={() => this.deleteComment(comment._id)}
+                                        src={del} 
+                                        alt="delete-icon"/>                             
+                                    </ListGroup.Item>
+                                  
                             )}
                         </ListGroup>
                 }

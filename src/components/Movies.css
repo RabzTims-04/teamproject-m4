@@ -55,21 +55,44 @@
         transform: translateX(-300px);
     }
     45%,55%{
-        transform: translateX(-450px);
+        transform: translateX(-350px);
     }
-   60%, 70%{
-        transform: translateX(-600px);
+   60%, 80%{
+    transform: translateX(0);
     }
   
-    75%,80%{
+    /* 75%,80%{
         transform: translateX(-750px);
-    }
-    85%,95%{
+    } */
+    /* 85%,95%{
         transform: translateX(0);
-    }
+    } */
   
   }
   
   .image-height{
     max-height: 18rem;
+  }
+
+  .modal-div{
+    top:0%;
+    left:0;
+    right:0;
+    height: 100%;
+  }
+
+  #deleteBtn{
+    height: 15px;
+    width: 15px;
+  }
+
+  #deleteBtn:hover{
+    height: 18px;
+    width: 18px;
+  }
+
+  option{
+    color: black;
+    background-color: transparent;
+    text-align: center;
   }

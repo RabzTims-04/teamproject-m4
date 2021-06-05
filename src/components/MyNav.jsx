@@ -1,13 +1,13 @@
 import React from "react";
 import { Component } from "react";
-import { Navbar } from "react-bootstrap";
+import { Navbar, Form, FormControl, Button } from "react-bootstrap";
 import "./MyNav.css";
 import avatar from "../assets/avatar.png";
 import netflix from "../assets/netflix_logo.png";
 import kids from "../assets/kids_icon.png";
 
 class MyNav extends Component {
-  state = {};
+
   render() {
     return (
       <Navbar className="navbar navbar-expand-lg bg-Color" variant="dark">
@@ -61,9 +61,9 @@ class MyNav extends Component {
         </ul>
         <div className="d-flex align-items-center" />
         <a
-          class="nav-link disabled"
+          className="nav-link disabled"
           href="/"
-          tabindex="-1"
+          tabIndex="-1"
           aria-disabled="true"
         >
           <svg
@@ -90,7 +90,7 @@ class MyNav extends Component {
           </svg>
         </a>
 
-        <a href="/">
+        
           <div className="nav-item dropdown justify-content-end ml-auto nav-link">
             <a
               className="nav-link dropdown-toggle"
@@ -108,14 +108,8 @@ class MyNav extends Component {
               className="dropdown-menu userDropdown"
               aria-labelledby="navbarDropdownMenuLink"
             >
-              <a className="dropdown-item p-0" href="/">
-                <a
-                  href="profile.html"
-                  className="addUser"
-                  style={{ textDecoration: "none" }}
-                >
+              <a className="dropdown-item p-0 addUser" href="profile.html" style={{ textDecoration: "none" }}>
                   Profile
-                </a>
                 <img className="kidsIcon ml-5" src={kids} alt="kidsIcon" />
               </a>
               <br />
@@ -128,7 +122,7 @@ class MyNav extends Component {
               </a>
             </div>
           </div>
-        </a>
+   
       </Navbar>
     );
   }

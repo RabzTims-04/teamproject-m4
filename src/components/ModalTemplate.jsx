@@ -12,18 +12,23 @@ const ModalTemplate = (props)=> {
   
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
+        <Button id='modalbtn' variant="primary" onClick={handleShow}>
          
         </Button>
   
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>{props['moviename']}</Modal.Title>
-            <CommentsList imdbID ={props.elementId}></CommentsList>
           </Modal.Header>
+
+          <Row>
+           <Col>
+           <CommentsList imdbID ={props.elementId}></CommentsList>
+           </Col>  
+          </Row>
        
           <Row className="justify-content-center text-center mt-3">
-         <Col xs={12} md={6}>
+         <Col>
          <AddComments elementId={props['elementId']}/>
          </Col>
             </Row>

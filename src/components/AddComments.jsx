@@ -5,9 +5,8 @@ class AddComments extends Component {
   state = {
     comment: {
       comment: '',
-      rate: '',
+      rate: 1,
       elementId: this.props['elementId']
-    //   elementId: this.props.imdbID,
     },
   };
 
@@ -36,6 +35,7 @@ class AddComments extends Component {
         },
       });
       console.log(response)
+      alert('comment added successfully')
       if (response.ok) {
         this.setState({
             comment: {
@@ -52,25 +52,34 @@ class AddComments extends Component {
     } catch (error) {}
   };
 
+  refresh =()=>{
+    window.location.reload();
+}
+
   render() {
     return (
         <Form onSubmit={(e) => this.postComment(e)} className="pt-2 mt-2 border-top border-dark">
         <Form.Row>
             <Col>
-                <Form.Control type="text" placeholder="Write your comment here..." value={this.state.comment.comment} id="comment" onChange={e => this.inputChange(e)} />
+                <Form.Control 
+                required
+                as="textarea"
+                rows={5} 
+                placeholder="Write your comment here..." 
+                value={this.state.comment.comment} 
+                id="comment" 
+                onChange={e => this.inputChange(e)} />
             </Col>
-            <Col>
-            <Form.Control
-                            type="text"
-                            placeholder="Enter Book Id"
-                            id='elementId'
-                            value={this.state.comment.elementId}
-                            onChange={e => this.inputChange(e)}
-                        /></Col>
         </Form.Row>
-        <Form.Row className="d-flex align-items-center mt-1">
-            <Col xs={3}>
-                <Form.Control as="select" className = "align-items-center" defaultValue="Rating..." value={this.state.comment.rate} id="rate" onChange={e => this.inputChange(e)} >
+        <Form.Row className="d-flex mt-4">
+            <Col>
+                <Form.Control
+                required 
+                as="select" 
+                className = "align-items-center" 
+                defaultValue="Rating..." 
+                value={this.state.comment.rate} id="rate" 
+                onChange={e => this.inputChange(e)} >
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -78,10 +87,26 @@ class AddComments extends Component {
                     <option>5</option>
                 </Form.Control>
             </Col>
-            <Col xs={9}>
-                <Button variant="primary" type="submit" id="sendBtn" className = "btn btn-success">Add Comment</Button>
-            </Col>
+        
         </Form.Row>
+        <Form.Row>
+        <Form.Control
+                            type="text"
+                            placeholder="Enter Book Id"
+                            style={{visibility:"hidden"}}
+                            id='elementId'
+                            value={this.state.comment.elementId}
+                            onChange={e => this.inputChange(e)}
+                            
+                        />
+
+        </Form.Row>
+        <Button 
+        variant="primary" 
+        type="submit" 
+        id="sendBtn" 
+        className = "btn btn-success"
+        >Add Comment</Button>
     </Form>
     );
   }
