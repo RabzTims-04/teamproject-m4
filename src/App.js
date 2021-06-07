@@ -28,7 +28,7 @@ class App extends Component {
       <>
         <MyNav /> 
         <Header />
-        {/* <Filtersearch/> */}
+        <Filtersearch/> 
         <Movies />
         <Footer />
       </>

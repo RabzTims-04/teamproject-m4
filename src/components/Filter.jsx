@@ -7,12 +7,12 @@ class Filter extends Component{
 
     state={
 
-        movies:[],
-        filtered:[]
+        movies:[]
+        /* filtered:[] */
     }
 
     componentDidMount = async ()=>{
-        const url= 'http://www.omdbapi.com/?i=tt3896198&apikey=5b5bab7&s=' + this.props.searchmovie 
+        const url= 'http://www.omdbapi.com/?i=tt3896198&apikey=5b5bab7&s=' + this.props.movieName 
 
         try {
 
@@ -23,11 +23,11 @@ class Filter extends Component{
                 this.setState({
                     movies:data.Search
                 })
-                console.log(this.state.movies);
+                /* console.log(this.state.movies);
                 let filtermovies = this.state['movies'].filter(movie=>movie['Title'].toLowerCase().includes(this.props.searchTitle))
                 this.setState({
                     filtered:filtermovies
-                })
+                }) */
               
             }else{
                 console.log('error');
@@ -36,6 +36,10 @@ class Filter extends Component{
         } catch (error) {
             console.log(error);            
         }
+    }
+
+    componentDidUpdate =()=>{
+        
     }
 
     /* inputChange =(e)=>{
@@ -79,7 +83,7 @@ class Filter extends Component{
                 </Row>
             </Container> */}
             <Container fluid className="search-movies">
-                {this.state.movies?this.state.movies.map(movie=><Carousel movieName ={this.state.filtered}/>):<p>Nothing to search</p>}
+                {this.state.movies && <Carousel movieName ={this.state.movies}/>}
             </Container>
             </>
         )

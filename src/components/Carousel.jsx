@@ -32,7 +32,7 @@ class Carousel extends Component{
         }
     }
 
-    searchMovies =(e)=>{
+ /*    searchMovies =(e)=>{
         e.preventDefault()
         let filtermovies = this.state['moviesArr'].filter(movie=>movie['Title'].toLowerCase().includes(this.state.search))
         console.log(filtermovies);
@@ -46,7 +46,7 @@ class Carousel extends Component{
                 movies:[]
             })
         }
-      }
+      } */
 
     render(){
         return(

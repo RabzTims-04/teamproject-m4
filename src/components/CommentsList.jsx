@@ -65,8 +65,11 @@ class CommentsList extends React.Component {
 
             if(await response.ok) {
                 alert('comment deleted')
-                this.setState({comments:''})
-                this.props.commentsUpdated()
+                console.log(await response.json().comment);
+                this.setState({
+                    comments:''
+                })
+               /*  this.props.commentsUpdated() */
                
             }
 
@@ -85,7 +88,7 @@ class CommentsList extends React.Component {
             <>
                 {
                     (
-                        this.state.comments.length === 0
+                        !this.state.comments.length
                     )
                         ? <p className="mt-3">No Comments Yet</p>
                         : <ListGroup>
