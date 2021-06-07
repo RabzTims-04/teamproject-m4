@@ -1,0 +1,106 @@
+.navbar-nav {
+  display: flex;
+  justify-content: left;
+}
+
+.dropdown-menu {
+  font-size: small;
+  background-color: #0e0e0e;
+}
+
+.dropdown-item {
+  color: white;
+  padding: 0.45rem 1rem;
+}
+
+.dropdown-toggle:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 2px 0 20px 2px rgba(255, 255, 255, 0.15);
+}
+
+.dropdown-item:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 2px 0 20px 2px rgba(255, 255, 255, 0.15);
+}
+
+.addUser:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 2px 0 20px 2px rgba(255, 255, 255, 0.15);
+}
+
+.imagetransition {
+  transform: translateX(0px);
+
+  transition: 1s all;
+  /* cursor: pointer; */
+}
+
+.imagetransition:hover {
+  box-shadow: 2px 0 20px 2px rgba(255, 255, 255, 4);
+  transform: scale(1.09);
+  z-index: 2;
+}
+
+.navbarLogo {
+  width: 100px;
+}
+
+.bg-Color {
+  color: white;
+  background-color: rgb(20, 20, 20);
+}
+
+.avatar {
+  width: 30px;
+}
+.kidsIcon {
+  width: 30px;
+}
+
+.bell {
+  color: white;
+  align-items: center;
+}
+
+#navbarIcon1 {
+  align-items: flex-end;
+  color: white;
+}
+
+.icon1 {
+  color: white;
+  left: 00px;
+}
+
+.icon {
+  left: 1050px;
+  top: 27px;
+  bottom: 0px;
+}
+
+.btn-group {
+  margin-right: 37px;
+}
+
+#alignbutton,
+#gridbutton {
+  width: 35%;
+  padding: 1px;
+  height: 85%;
+}
+
+.icon2 {
+  left: 1100px;
+  top: 27px;
+}
+.userDropdown {
+  background-color: rgb(20, 20, 20);
+  color: white;
+}
+.addUser {
+  color: white;
+  text-align: center;
+}

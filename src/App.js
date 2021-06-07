@@ -1,25 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import MyNav from "./components/MyNav";
+import Header from "./components/Header";
+import Movies from "./components/Movies";
+import Footer from "./components/Footer";
+import { Component } from 'react'
+import Filtersearch from './components/Filtersearch';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  state ={
+    searchKey:''
+  }
+
+  setSearchKey = searchKey =>{
+    this.setState({
+      searchKey:searchKey.toLowerCase()
+    })
+  }
+
+  render(){
+
+    console.log(this.state.searchKey);
+
+    return (
+      <>
+        <MyNav /> 
+        <Header />
+        <Filtersearch/> 
+        <Movies />
+        <Footer />
+      </>
+  
+    );
+
+  }
+  
 }
 
 export default App;
