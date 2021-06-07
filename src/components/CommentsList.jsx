@@ -94,7 +94,8 @@ class CommentsList extends React.Component {
                         ? <p className="mt-3">No Comments Yet</p>
                         : <ListGroup>
                             
-                            {(this.props.updatedComments.length>0)?this.props.updatedComments.map(comment => 
+                            {(this.props.updatedComments.length>0)?
+                            this.props.updatedComments.map(comment => 
                                 <ListGroup.Item 
                                 className="d-flex" 
                                 >
