@@ -45,6 +45,18 @@ class AddComments extends Component {
                 // elementId: this.props.imdbID
             }
         })
+        let newResponse = await fetch(url + this.props['elementId'], {
+  
+          headers: {
+              "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2JhOWNlYWY0ODAwMTVjOTE4NjYiLCJpYXQiOjE2MjI3OTg2NzksImV4cCI6MTYyNDAwODI3OX0.V8KJrn1i0Rq_N_xOj3dtZ9oHmcfsYcUrnb7KD9-0JG8"
+          },
+        });
+
+        const newData=await newResponse.json()
+
+        console.log(newData);
+        this.props.updatedComments(newData)
+
        /*  this.props.commentsUpdated() */
     } else {
         console.log('Error with POST request')
