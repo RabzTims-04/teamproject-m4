@@ -10,9 +10,7 @@ class Carousel extends Component{
         search:''
     }
 
-    
-
-    componentDidMount = async ()=>{
+    fetchData = async()=>{
         const url='http://www.omdbapi.com/?i=tt3896198&apikey=5b5bab7&s=' + this.props['movieName']
 
         try {
@@ -31,6 +29,36 @@ class Carousel extends Component{
             console.log(error);            
         }
     }
+
+    
+
+    componentDidMount = ()=>{
+        this.fetchData()
+  /*        const url='http://www.omdbapi.com/?i=tt3896198&apikey=5b5bab7&s=' + this.props['movieName']
+
+        try {
+
+            let response = await fetch(url)
+             console.log(response); 
+            const data = await response.json()
+            console.log(data);
+            let movies = await data.Search
+            console.log(movies);
+            this.setState({
+                moviesArr:movies
+            })
+            
+        } catch (error) {
+            console.log(error);            
+        }  */
+    }
+
+     componentDidUpdate = (prevProps)=>{
+         console.log('prevprops',prevProps);
+        if(prevProps.movieName !== this.props.movieName){
+            this.fetchData()
+        }
+    } 
 
  /*    searchMovies =(e)=>{
         e.preventDefault()
@@ -54,7 +82,7 @@ class Carousel extends Component{
             <>
      
             
-            {(this.state.moviesArr.length === 0)
+            {(!this.state.moviesArr)
             ?<p>No movies to show</p>
             :this.state.moviesArr.map((movie,i) =>              
             <div key={movie.imdbID} className ='infinite-row-element position-relative'>

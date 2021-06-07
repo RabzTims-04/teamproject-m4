@@ -41,9 +41,10 @@ class CommentsList extends React.Component {
                 })
 
                 let comments = await response.json()
+                console.log('test update');
 
                 this.setState({
-                    comments: comments,
+                    comments: comments
                 
                 })
             } catch (error) {
@@ -92,7 +93,22 @@ class CommentsList extends React.Component {
                     )
                         ? <p className="mt-3">No Comments Yet</p>
                         : <ListGroup>
-                            {this.state.comments.map(comment => 
+                            
+                            {(this.props.updatedComments.length>0)?this.props.updatedComments.map(comment => 
+                                <ListGroup.Item 
+                                className="d-flex" 
+                                >
+                                    <span className="mr-auto">{comment.comment}</span>
+                                    <span className="mr-5">{comment.rate}/5</span>
+                                    <img
+                                        className="ml-5 mt-1"
+                                        id= 'deleteBtn'
+                                        onClick={() => this.deleteComment(comment._id)}
+                                        src={del} 
+                                        alt="delete-icon"/>                             
+                                    </ListGroup.Item>
+                                  
+                            ):this.state.comments.map(comment => 
                                 <ListGroup.Item 
                                 className="d-flex" 
                                 >

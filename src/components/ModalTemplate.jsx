@@ -6,9 +6,14 @@ import CommentsList from './CommentsList'
 
 const ModalTemplate = (props)=> {
     const [show, setShow] = useState(false);
-  
+    const [comments, setcomments] = useState([])
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+   const updated =(data)=>{
+     setcomments(data)
+      
+    }
   
     return (
       <>
@@ -23,13 +28,13 @@ const ModalTemplate = (props)=> {
 
           <Row>
            <Col>
-           <CommentsList imdbID ={props.elementId}></CommentsList>
+           <CommentsList imdbID ={props.elementId} updatedComments={comments}></CommentsList>
            </Col>  
           </Row>
        
           <Row className="justify-content-center text-center mt-3">
          <Col>
-         <AddComments elementId={props['elementId']}/>
+         <AddComments elementId={props['elementId']} updatedComments={updated}/>
          </Col>
             </Row>
         </Modal>
